@@ -38,5 +38,45 @@ class LinkedList:
 
         return False
 
+    # Time complexity is O(n)
     def reverse_list(self, node, prev):
-        pass
+        
+        if node is None: 
+            return 
+
+        # check the next node
+        if node.next_node:
+            # recursive call
+            self.reverse_list(node.next_node, node)
+        else:
+            # when we reach at the last node
+            self.head = node
+
+        node.next_node = prev
+
+    # def print_list(self): 
+    #     node = self.head 
+    #     while(node): 
+    #         print(node.value)
+    #         node = node.next_node
+
+
+# Driver program 
+# list = LinkedList() 
+# list.add_to_head(50) 
+# list.add_to_head(49) 
+# list.add_to_head(48) 
+# list.add_to_head(47) 
+# list.add_to_head(46) 
+# list.add_to_head(45) 
+# list.add_to_head(44) 
+# list.add_to_head(43) 
+
+# print ("linked list")
+# list.print_list() 
+
+# list.reverse_list(list.head, None)
+
+# print( "\nReverse linked list")
+
+# list.print_list()
